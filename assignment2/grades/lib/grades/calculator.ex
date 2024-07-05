@@ -1,11 +1,6 @@
 defmodule Grades.Calculator do
-  defp avg(list) do
-    if Enum.count(list) == 0 do
-      0
-    else
-      Enum.sum(list) / Enum.count(list)
-    end
-  end
+  defp avg(list) when length(list) == 0, do: 0
+  defp avg(list), do: Enum.sum(list) / Enum.count(list)
 
   defp failed_to_participate?(avg_homework, avg_exams, num_labs) do
     avg_homework < 0.4 || avg_exams < 0.4 || num_labs < 3
